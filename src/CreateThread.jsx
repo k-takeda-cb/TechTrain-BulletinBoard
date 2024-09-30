@@ -38,11 +38,10 @@ export const CreateThread = () => {
           variant="outlined"
           value={threadTitle}
           onChange={(e) => setThreadTitle(e.target.value)}
-          fullWidth
           sx={{ width: "80%", mb: 2 }}
         />
         <Button variant="contained" color="primary" onClick={postThread}>
-          送信
+          スレッドを作成
         </Button>
         {errorMessage && (
           <Typography variant="body1" color="error" mt={2}>
