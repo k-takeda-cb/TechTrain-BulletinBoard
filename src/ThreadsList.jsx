@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { List, ListItem, Paper, Typography, Pagination } from '@mui/material';
 import './ThreadsList.css'
+import Header from './Header.jsx'
 
 export const ThreadsList = () => {
   const [threadOffset, setThreadOffset] = useState(0);
@@ -16,8 +17,6 @@ export const ThreadsList = () => {
       )
   },[threadOffset])
 
-  console.log(threadsList)
-
   const threads = (
       <List>
         {threadsList.map((thread) => 
@@ -31,10 +30,14 @@ export const ThreadsList = () => {
   );
 
   return (
-    <div id="ThreadsList">
-      {threads}
-      <Pagination count={10} onChange={(event, value) => setThreadOffset((value-1)*10)} />
-    </div>
+    <>
+      <Header />
+      <div id="ThreadsList">
+        <Typography variant="h5" style={{ padding: '8px'}}>スレッド一覧</Typography>
+        {threads}
+        <Pagination count={10} onChange={(event, value) => setThreadOffset((value-1)*10)} />
+      </div>
+    </>
   )
 }
 
