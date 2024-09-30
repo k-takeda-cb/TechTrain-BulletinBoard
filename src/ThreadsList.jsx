@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
-import { List, ListItem, Paper, Typography, Pagination } from '@mui/material';
-import './ThreadsList.css'
+import { List, ListItem, Paper, Typography, Pagination, Box } from '@mui/material';
 import Header from './Header.jsx'
 
 export const ThreadsList = () => {
@@ -32,11 +31,18 @@ export const ThreadsList = () => {
   return (
     <>
       <Header />
-      <div id="ThreadsList">
+      <Box 
+         sx={{
+           maxWidth: '1280px',
+           margin: '0 auto',
+           padding: '2rem',
+           textAlign: 'center'
+         }}
+      >
         <Typography variant="h5" style={{ padding: '8px'}}>スレッド一覧</Typography>
         {threads}
         <Pagination count={10} onChange={(event, value) => setThreadOffset((value-1)*10)} />
-      </div>
+      </Box>
     </>
   )
 }
